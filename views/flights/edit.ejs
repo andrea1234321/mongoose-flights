@@ -3,17 +3,17 @@
 <%- include('../partials/nav') %>
 <main>
   <h1><%= title %></h1>
-  <form action="/flights" method="POST" id="new-form">
+  <form action="/flights/<%= flight._id %>/?_method=PUT" method="POST" id="new-form">
     <label for="airline-input">Airline</label>
     <select name="airline">
-      <option value=""><%= flight.airline %></option>
+      <option value="<%= flight.airline %>"><%= flight.airline %></option>
       <option value="American">American</option>
       <option value="Southwest">Southwest</option>
       <option value="United">United</option>
     </select>
     <label for="airport-input">Airport</label>
     <select name="airport">
-      <option value=""><%= flight.airport %></option>
+      <option value="<%= flight.airport %>"><%= flight.airport %></option>
       <option value="AUS">AUS</option>
       <option value="DFW">DFW</option>
       <option value="DEN">DEN</option>
@@ -23,7 +23,7 @@
     <label for="flightNo-input">Flight No</label>
     <input type="Number" name="flightNo" value="<%= flight.flightNo %>">
     <label for="departs-input">Departs</label>
-    <input type="text" name="departs" autocomplete="off" value="<%= flight.departs %>">
+    <input type="datetime-local" name="departs" autocomplete="off" value="<%= flight.departs.toISOString().slice(0, 16) %>">
     <button type="submit">Submit Edit</button>
   </form>
 </main>
