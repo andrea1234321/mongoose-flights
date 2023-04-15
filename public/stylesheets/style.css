@@ -8,5 +8,6 @@ a {
 }
 
 .add-flights> label{
-  display: block
+  display: block;
+  margin-top: 30px;
 }

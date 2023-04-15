@@ -1,16 +1,31 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/flights/forms.css" />
 <%- include('../partials/nav') %>
-<h1>Add Flights</h1>
-<form action="/flights" method="POST" class="add-flights">
-  <label for="airline-input">Airline</label>
-  <input type="text" name="airline">
-  <label for="airport-input">Airport</label>
-  <input type="text" name="airport">
-  <label for="flightNo-input">Flight No</label>
-  <input type="Number" name="flightNo">
-  <label for="departs-input">Departs</label>
-  <input type="text" name="departs">
-  <button>Add flight</button>
-</form>
+<main>
+  <h1><%= title %></h1>
+  <form action="/flights" method="POST" id="new-form">
+    <label for="airline-input">Airline</label>
+    <select name="airline">
+      <option value=""></option>
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
+    </select>
+    <label for="airport-input">Airport</label>
+    <select name="airport">
+      <option value=""></option>
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+    <label for="flightNo-input">Flight No</label>
+    <input type="Number" name="flightNo">
+    <label for="departs-input">Departs</label>
+    <input type="text" name="departs" autocomplete="off">
+    <button>Add flight</button>
+  </form>
+</main>
 
 <%- include("../partials/footer") %>
