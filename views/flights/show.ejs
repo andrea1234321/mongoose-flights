@@ -13,5 +13,11 @@
     <div>Departs: </div>
     <div><%= flight.departs%></div>
   </section>
+  <a href="/flights/<%= flight._id %>/edit">
+    <div>
+      <button>Edit</button>
+    </div>
+  </a>
+  </form>
 </main>
 <%- include('../partials/footer') %>

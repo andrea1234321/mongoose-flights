@@ -33,7 +33,7 @@ section {
   grid-gap: 16px;
 }
 
-section div:nth-child(even) {
+section div:nth-child(odd) {
   font-weight: bold;
 }
 
