@@ -3,6 +3,12 @@ import { Flight } from "../models/flight.js"
 function index(req,res){
   Flight.find({})
   .then(flights => {
+    flights.forEach(function (flight){
+      if (flight.departs< new Date()){
+        flight.color= 'red'
+        console.log(flight)
+      }
+    })
     res.render('flights/index',{
       flights: flights.sort((a, b) => a.departs - b.departs),
       title: 'All Flights',
@@ -16,8 +22,6 @@ function index(req,res){
 
 function newFlight(req,res){
   const departsDate = new Flight().departs.toISOString().slice(0, 16)
-  // const dt = newFlight.departs
-  // const departsDate = dt.toISOString().slice(0, 16)
   res.render('flights/new', {
     title: 'Add Flight',
     departsDate
@@ -32,7 +36,6 @@ function create(req,res){
   }
   Flight.create(req.body)
   .then(flight => {
-    console.log(flight)
     res.redirect('/flights')
   })
   .catch(err=> {
