@@ -4,8 +4,8 @@ function index(req,res){
   Flight.find({})
   .then(flights => {
     res.render('flights/index',{
-      flights: flights,
-      title: 'All Flights'
+      flights: flights.sort((a, b) => a.departs - b.departs),
+      title: 'All Flights',
     })
   })
   .catch(err=> {
